@@ -6,6 +6,7 @@
 Далі програма повторно запитує слово для перекладу і так по колу.
 Для завершення програми юзер має ввести команду: #exit
  */
+
 const map = new Map([
   ["first", "превый"],
   ["second", "второй"],
@@ -35,6 +36,7 @@ while (exit === false) {
     translate(getWord);
   }
 }
+
 /*2.
 (Set) У вас є два масиви з числами. Необхідно знайти всі числа, які є одночасно в обох масивах.
 const array1 = [1, 2, 3, 4, 5, 6];
@@ -107,3 +109,44 @@ const user1 = new User("Mails", 19);
 const user2 = new User("Maikle", 15);
 console.log(user1.canVote());
 console.log(user2.canVote());
+
+/*6.(Function constuctor)
+Створіть функцію-конструктор BankAccount, яка створює банківський рахунок
+з початковим балансом (balance). Додайте методи:
+deposit(amount), який додає до балансу зазначену суму.
+withdraw(amount), який знімає кошти з рахунку, якщо баланс достатній,
+інакше виводить повідомлення про недостатній баланс.
+getBalance(), який повертає поточний баланс.
+Приклад використання:
+const myAccount = new BankAccount(1000);
+myAccount.deposit(500);
+console.log(myAccount.getBalance()); 
+// Очікуваний результат: 1500
+myAccount.withdraw(2000); 
+// Очікуваний результат: "Недостатньо коштів"
+console.log(myAccount.getBalance());
+// Очікуваний результат: 1500 (оскільки зняття не відбулося)
+ */
+
+function BankAccount(balance) {
+  this.balance = balance;
+  this.getBalance = function () {
+    return this.balance;
+  };
+  this.deposit = function (deposit) {
+    this.balance = this.balance + deposit;
+  };
+  this.withdraw = function (withdraw) {
+    if (this.balance - withdraw < 0) {
+      console.log(`Недостатньо коштів`);
+    } else {
+      this.balance = this.balance - withdraw;
+    }
+  };
+}
+
+const myAcount = new BankAccount(1000);
+myAcount.deposit(1500);
+console.log(myAcount.getBalance());
+myAcount.withdraw(250);
+console.log(myAcount.getBalance());
