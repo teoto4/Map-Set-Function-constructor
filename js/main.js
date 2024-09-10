@@ -61,3 +61,26 @@ if (result) {
 } else {
   console.log("not unique");
 }
+
+/*4.(Function constuctor)
+Створіть функцію-конструктор Car, яка створює об'єкти з наступними властивостями:
+марка (brand),
+модель (model),
+рік випуску (year).
+Додайте до об'єктів метод getCarInfo(),
+який буде повертати рядок з інформацією про автомобіль у форматі:
+"Марка: Toyota, Модель: Corolla, Рік випуску: 2020". */
+function Car(brand, model, year) {
+  this.brand = brand;
+  this.model = model;
+  this.year = year;
+  this.getCarInfo = function () {
+    return `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+  };
+}
+
+const car1 = new Car("Toyota", "Corolla", 1930);
+const car2 = new Car("Bmw", "X5", 2014);
+
+console.log(car1.getCarInfo());
+console.log(car2.getCarInfo());
