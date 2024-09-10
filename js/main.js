@@ -84,3 +84,26 @@ const car2 = new Car("Bmw", "X5", 2014);
 
 console.log(car1.getCarInfo());
 console.log(car2.getCarInfo());
+
+/*5.(Function constuctor)
+Створіть функцію-конструктор User, яка приймає ім'я користувача (name) та його вік (age).
+Додайте метод canVote(), який буде повертати true, якщо користувач старше 18 років,
+і false – якщо молодше.
+*/
+
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+  this.canVote = function () {
+    if (this.age > 18) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+}
+
+const user1 = new User("Mails", 19);
+const user2 = new User("Maikle", 15);
+console.log(user1.canVote());
+console.log(user2.canVote());
