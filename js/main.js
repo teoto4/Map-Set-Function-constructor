@@ -35,3 +35,15 @@ while (exit === false) {
     translate(getWord);
   }
 }
+/*2.
+(Set) У вас є два масиви з числами. Необхідно знайти всі числа, які є одночасно в обох масивах.
+const array1 = [1, 2, 3, 4, 5, 6];
+const array2 = [4, 5, 6, 7, 8, 9];
+ */
+
+const array1 = [1, 2, 3, 4, 5, 6];
+const array2 = [4, 5, 6, 7, 8, 9];
+
+const setArr = new Set(array1);
+const same_numb = array2.filter((numb) => setArr.has(numb));
+console.log(same_numb);
